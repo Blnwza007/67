@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HBD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:ital,wght@0,400;0,600;0,800;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- SCREEN 1: LOGIN -->
+  <div class="screen active" id="screen-login">
+    <img src="picture.jpg" alt="">
+    <div class="eyebrow">ห้ามเข้าถ้าไม่ใช่ตัวจริง</div>
+    <h1 class="display">Loginก่อนน</h1>
+    <p>ใส่ชื่อผู้ใช้และรหัสวันเกิดเพื่อปลดล็อกของขวัญ</p>
+    <div class="field">
+      <label for="input-username">ชื่อผู้ใช้</label>
+      <input type="text" id="input-username" placeholder="พิมพ์ชื่อผู้ใช้..." autocomplete="off">
+    </div>
+    <div class="field">
+      <label for="input-birthday">รหัสวันเกิด (วัน-เดือน-ปี)</label>
+      <input type="date" id="input-birthday">
+    </div>
+    <div class="error-msg" id="login-error"></div>
+    <button id="btn-login">เข้าสู่ระบบ 🐽</button>
+  </div>
+
+  <!-- SCREEN 2: LOADING -->
+  <div class="screen" id="screen-loading">
+    <div class="eyebrow">กำลังเตรียมซองง</div>
+    <div class="pig" id="pig-emoji" title="กดข้าดูสิ">🐷</div>
+    <h2 class="display loading-text" id="loading-text">กำลังขุดคอกหมู...</h2>
+    <div class="bar-track"><div class="bar-fill" id="bar-fill"></div></div>
+  </div>
+
+  <!-- SCREEN 3: ENVELOPE (chase) -->
+  <div class="screen" id="screen-envelope">
+    <div class="eyebrow">ภารกิจจับซองอวยพร</div>
+    <h1 class="display">จับซองให้ได้ก่อนนน</h1>
+    <div id="envelope-zone">
+      <div id="envelope">
+        <svg viewBox="0 0 120 84" width="120" height="84">
+          <rect class="env-body" x="0" y="0" width="120" height="84" rx="10"></rect>
+          <polygon class="env-flap" points="0,0 60,42 120,0"></polygon>
+          <polygon points="0,84 60,42 120,84" fill="#e85d7a"></polygon>
+        </svg>
+      </div>
+    </div>
+    <div class="hint" id="chase-hint">ลองแตะซองดูสิ...</div>
+  </div>
+
+  <!-- SCREEN 4: FINAL -->
+  <div class="screen" id="screen-final">
+    <canvas id="fireworks-canvas"></canvas>
+    <div class="final-card">
+      <div class="eyebrow">เปิดซองสำเร็จ</div>
+      <h1 class="display" id="final-title">สุขสันต์วันเกิด! 🎉🐷</h1>
+      <p class="final-msg" id="final-message"></p>
+      <button class="secondary" id="btn-replay" style="margin-top:14px;">กลับไปหน้าแรก</button>
+    </div>
+  </div>
+
+  <!-- Yes/No modal overlay -->
+  <div class="overlay" id="overlay-question">
+    <div class="modal-card">
+      <h2 class="display">มึงชอบ Kuaitun สุดหล่อไหม? 🐷💕</h2>
+      <p>ตอบตามตรงนะ (ห้ามโกหก)</p>
+      <div class="modal-btns">
+        <button id="btn-yes">ใช่ ชอบสุดๆ</button>
+        <button id="btn-no" class="secondary">ไม่ชอบ</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <div class="footer-note">คำใบ้ชื่อ "คนที่เป็นแฟนมึง"</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
